@@ -8,6 +8,9 @@ import com.mxxy.game.utils.UIHelp;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
+/**
+ * @author javaman
+ */
 public class DragMoveAdapter extends AbstractBaseEventListener<GamePager> {
 
     public static final int LEFT = 1;
@@ -68,15 +71,17 @@ public class DragMoveAdapter extends AbstractBaseEventListener<GamePager> {
 
     }
 
-    public void mouseDragged(MouseEvent e) {
-        int endX = e.getX();
-        int endY = e.getY();
-        int moveX = endX - startX;
-        int moveY = endY - startY;
-        Point p = me.getLocation();
-
-        me.setLocation(p.x + moveX, p.y + moveY);
-    }
+    // 主面板拖动逻辑, 不要;
+//    @Override
+//    public void mouseDragged(MouseEvent e) {
+//        int endX = e.getX();
+//        int endY = e.getY();
+//        int moveX = endX - startX;
+//        int moveY = endY - startY;
+//        Point p = me.getLocation();
+//
+//        me.setLocation(p.x + moveX, p.y + moveY);
+//    }
 
     private int getDirection(int dis) {
         int x1 = (int) myBound.getCenterX();

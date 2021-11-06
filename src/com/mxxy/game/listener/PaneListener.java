@@ -5,6 +5,9 @@ import com.mxxy.game.base.Panel;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
+/**
+ * @author javaman
+ */
 public class PaneListener extends AbstractBaseEventListener<Panel> {
 
 
@@ -22,18 +25,20 @@ public class PaneListener extends AbstractBaseEventListener<Panel> {
         this.isReightClose = isReightClose;
     }
 
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        // 此为得到事件源组件
-        Component cp = (Component) e.getSource();
-        // 当鼠标点下的时候记录组件当前的坐标与鼠标当前在屏幕的位置
-        newX = e.getXOnScreen();
-
-        newY = e.getYOnScreen();
-        // 设置bounds,将点下时记录的组件开始坐标与鼠标拖动的距离相加
-        cp.setBounds(startX + (newX - oldX), startY + (newY - oldY),
-                cp.getWidth(), cp.getHeight());
-    }
+    // 小面板拖动逻辑;
+//    @Override
+//    public void mouseDragged(MouseEvent e) {
+//        super.mouseDragged(e);
+//        // 此为得到事件源组件
+//        Component cp = (Component) e.getSource();
+//        // 当鼠标点下的时候记录组件当前的坐标与鼠标当前在屏幕的位置
+//        newX = e.getXOnScreen();
+//
+//        newY = e.getYOnScreen();
+//        // 设置bounds,将点下时记录的组件开始坐标与鼠标拖动的距离相加
+//        cp.setBounds(startX + (newX - oldX), startY + (newY - oldY),
+//                cp.getWidth(), cp.getHeight());
+//    }
 
     @Override
     public void mouseMoved(MouseEvent e) {

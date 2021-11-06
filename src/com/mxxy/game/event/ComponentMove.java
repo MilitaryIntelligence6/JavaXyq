@@ -36,11 +36,8 @@ public class ComponentMove extends AbstractBaseEventListener {
         Component cp = (Component) e.getSource();
         // 当鼠标点下的时候记录组件当前的坐标与鼠标当前在屏幕的位置
         startX = cp.getX();
-
         startY = cp.getY();
-
         oldX = e.getXOnScreen();
-
         oldY = e.getYOnScreen();
     }
 }

@@ -528,6 +528,7 @@ public class LightweightToolTipManager extends MouseAdapter implements MouseMoti
      *
      * @param event the event in question
      */
+    @Override
     public void mouseDragged(MouseEvent event) {
     }
 
@@ -537,6 +538,7 @@ public class LightweightToolTipManager extends MouseAdapter implements MouseMoti
      *
      * @param event the event in question
      */
+    @Override
     public void mouseMoved(MouseEvent event) {
         if (tipShowing) {
             checkForTipChange(event);
