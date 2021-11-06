@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="RegistUser" width="330" height="222" x="238" y="189" move="true" isReightClose="true">
+
+	<TextField 	x="113" y="30" width="200" height="15" name="regist_user" hide="如name@qq.com"/>
+	<TextField  x="113" y="55"  width="200" height="15" name="regist_password"/>
+	<TextField  x="113" y="80"  width="200" height="15" name="check_password"/>
+	<TextField  x="113" y="105"  width="200" height="15" name="check_num"/>
+	
+	<ImageComponentButton name="closer" x="308" y="3" path="res/wzife/button/closebtn.tcp" actionId="close"/>
+	<!-- 注册按钮 -->
+	<ImageComponentButton x="129"  y="140" width="72" height="20" paths="res/componentsRes/register.png" name="regist" actionId="regist"/> 
+	<!-- 背景图片 -->
+	<Sprite  x="0"  y="0" imageIcon="true" width="330" height="222" path="res/componentsRes/registerbackground.png" name="registerbackground"/>
+</panel>

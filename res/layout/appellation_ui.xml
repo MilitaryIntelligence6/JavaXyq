@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<panel id="Appellation" width="251" height="361" x="284" y="58" isReightClose="true" move="true"> 
+  <Sprite x="85" y="35" width="100" height="20" name="currentAppellation" grivate="0"/>  
+  <Sprite x="0" y="0" path="res/wzife/dialog/appellation.tcp"/>  
+  <ImageComponentButton text="更换" id="" name="head" x="140" y="330" path="res/wzife/button/smallbtn.tcp" actionId="changes"/>  
+  <ImageComponentButton text="取消" id="" name="head" x="190" y="330" path="res/wzife/button/smallbtn.tcp" actionId="close"/>  
+  <ImageComponentButton actionId="close" x="228" y="5" path="res/wzife/button/closebtn.tcp"/> 
+</panel>

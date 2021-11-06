@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="TalkPanel" width="482" height="167" x="180" y="320"
+	isReightClose="true" move="true">
+
+	<Sprite x="0" y="0" path="res/wzife/dialog/npcchat.tcp" />
+	<ImageComponentButton actionId="close" x="460" y="5" path="res/wzife/button/closebtn.tcp"/>
+	<!-- <Sprite name="npchead" x="0" y="0"/> -->
+
+</panel>

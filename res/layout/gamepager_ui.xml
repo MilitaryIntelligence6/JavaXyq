@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<panel id="GamePager" width="806" height="600" x="0" y="0"> 
+  <!--功能键背景 -->  
+  <Sprite x="482" y="508" name="btnframe" path="res/wzife/main/btnframe.tcp"/>  
+  <!-- 聊天框背景 -->  
+  <Sprite x="41" y="548" name="chatframe" path="res/wzife/main/chatframe.tcp"/>  
+  <Sprite x="48" y="40" path="res/wzife/time/tiemplayer.tcp"/>  
+  <!--左下角图标 -->  
+  <Sprite x="0" y="540" name="leftdown" path="res/wzife/main/leftdown.tcp"/>  
+  <!-- 时辰 -->  
+  <Sprite x="0" y="31" name="01" path="res/wzife/time/01.tcp"/>  
+  <!--左上角房子 -->  
+  <Sprite x="0" y="0" name="xitai" path="res/wzife/main/xitai.tcp"/>  
+  <Sprite x="23" y="30" name="day1" path="res/wzife/main/day1.tcp" width="75" height="35"/>  
+  <!-- 宠物背景框 -->  
+  <Sprite x="608" y="0" name="blank1" path="res/wzife/main/blank.tcp"/>  
+  <Sprite x="608" y="14" name="blank2" path="res/wzife/main/blank.tcp"/>  
+  <Sprite x="608" y="27" name="blank3" path="res/wzife/main/blank.tcp"/>  
+  <Sprite x="570" y="1" name="summonframe" path="res/wzife/main/summonframe.was"/>  
+  <!-- 人物背景框 -->  
+  <Sprite x="678" y="1" name="heroframe" path="res/wzife/main/heroframe.tcp"/>  
+  <!-- 人物hp mp sp exp -->  
+  <Sprite x="742" y="3" name="hp" path="res/wzife/main/hp.tcp"/>  
+  <Sprite x="742" y="16" name="mp" path="res/wzife/main/mp.tcp"/>  
+  <Sprite x="742" y="30" name="sp" path="res/wzife/main/sp.tcp"/>  
+  <Sprite x="743" y="43" name="exp" path="res/wzife/main/exp.tcp"/>  
+  <Sprite x="730" y="0" name="blank" path="res/wzife/main/blank.tcp"/>  
+  <Sprite x="730" y="14" name="blank" path="res/wzife/main/blank.tcp"/>  
+  <Sprite x="730" y="27" name="blank" path="res/wzife/main/blank.tcp"/>  
+  <Sprite x="730" y="40" name="blank" path="res/wzife/main/blank.tcp"/>  
+  <ImageComponentButton name="PalettePager" actionId="actionOpenPager" x="775" y="60" path="res/wzife/button/colorbtn.tcp" enableds="true"/>  
+  <ImageComponentButton name="WordMap" x="95" y="19" path="res/wzife/button/lantern.tcp" actionId="actionOpenPager" enableds="true"/>  
+  <ImageComponentButton name="lanterntrue" x="95" y="38" path="res/wzife/button/lantern.tcp" actionId="bigMap" enableds="true"/>  
+  <!-- 小地图 -->  
+  <ImageComponentButton name="SceneMap" x="95" y="57" path="res/wzife/button/lantern.tcp" actionId="actionOpenPager" enableds="true"/>  
+  <!-- 攻击 -->  
+  <ImageComponentButton name="attack" x="495" y="535" path="res/wzife/button/attack.tcp" actionId="attack"/>  
+  <!-- 道具 -->  
+  <ImageComponentButton name="PropPager" x="520" y="535" path="res/wzife/button/item.tcp" actionId="openProp"/>  
+  <!-- 给予 -->  
+  <ImageComponentButton name="ShoppingPager" x="545" y="535" path="res/wzife/button/give.tcp" actionId="actionOpenPager"/>  
+  <!-- 交易 -->  
+  <ImageComponentButton name="trade" x="570" y="535" path="res/wzife/button/trade.tcp"/>  
+  <!-- 组队 -->  
+  <ImageComponentButton name="team" x="595" y="535" path="res/wzife/button/team.tcp"/>  
+  <!--宠物 -->  
+  <ImageComponentButton name="PetPgaer" x="620" y="535" path="res/wzife/button/pet.tcp" actionId="actionOpenPager"/>  
+  <!-- 任务 -->  
+  <ImageComponentButton name="task" x="645" y="535" path="res/wzife/button/task.tcp"/>  
+  <ImageComponentButton name="guild" x="670" y="535" path="res/wzife/button/guild.tcp" enableds="true"/>  
+  <!--技能 -->  
+  <ImageComponentButton name="PlayerSkill" x="695" y="535" path="res/wzife/button/magic.tcp" enableds="true" actionId="actionOpenPager"/>  
+  <!-- 好友 -->  
+  <ImageComponentButton name="FishingPager" x="720" y="535" path="res/wzife/button/friend.tcp" actionId="actionOpenPager" enableds="true"/>  
+  <!-- 表情 -->  
+  <ImageComponentButton name="PlayerEmote" x="745" y="535" path="res/wzife/button/emote.tcp" actionId="actionOpenPager"/>  
+  <!--设置 -->  
+  <ImageComponentButton name="SettingsPage" x="770" y="535" path="res/wzife/button/sys.tcp" actionId="openSetting" enableds="true"/>  
+  <!-- 召唤兽-->  
+  <ImageComponentButton name="SummonPager" x="574" y="4" path="res/wzife/photo/summon/0000.tcp" actionId="actionOpenPager" enableds="true"/>  
+  <!-- 人物属性-->  
+  <ImageComponentButton name="PlayerAttribute" x="680" y="4" path="res/wzife/photo/facesmall/0001.tcp" actionId="actionOpenPager" enableds="true"/>  
+  <!-- 当前-->  
+  <ImageComponentButton name="current" x="2" y="548" path="res/wzife/chat/currentchannel.tcp" enableds="true"/>  
+  <!-- 表情 -->  
+  <ImageComponentButton name="Emoticon" x="310" y="545" path="res/wzife/emoticons/#29.was" actionId="actionOpenPager" enableds="true"/> 
+</panel>

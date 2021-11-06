@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<panel id="BattleWarmagic" x="320" y="110" width="190" height="304" move="true" isReightClose="true"> 
+  <ImageComponentButton name="closer" x="168" y="3" path="res/wzife/button/closebtn.tcp" actionId="close"/>  
+  <Sprite x="50" y="266" width="65" height="24" color="green" text="" name="defaultMagic" grivate="0"/>  
+  <Sprite x="0" y="0" path="res/wzife/dialog/warmagic10.tcp"/> 
+</panel>

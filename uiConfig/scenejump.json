@@ -1,0 +1,40 @@
+{
+    "SceneJump": [
+        {
+            "endPoint": "59 35",
+            "goalId": 1092,
+            "originId": 1104,
+            "startPoint": "58 42"
+        },
+         {
+            "endPoint": "59 35",
+            "goalId": 1092,
+            "originId": 1104,
+            "startPoint": "5 145"
+        },
+        {
+            "endPoint": "59 35",
+            "goalId": 1174,
+            "originId": 1092,
+            "startPoint": "84 153"
+        },
+        {
+            "endPoint": "59 35",
+            "goalId": 1104,
+            "originId": 1146,
+            "startPoint": "40 8"
+        },
+        {
+            "endPoint": "59 35",
+            "goalId": 1147,
+            "originId": 1146,
+            "startPoint": "61 40"
+        },
+         {
+            "endPoint": "59 35",
+            "goalId": 1501,
+            "originId": 1501,
+            "startPoint": "279 27"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<panel id="PetPgaer" width="350" height="195" x="290" y="50" isReightClose="true" move="true"> 
+  <ImageComponentButton id="" x="298" y="8" actionId="close" path="res/wzife/button/closebtn.tcp"/>  
+  <ImageComponentButton name="SummonPager" x="15" y="155" text="召唤兽" path="res/wzife/button/middlebutton.tcp" actionId="openPet"/>  
+  <ImageComponentButton name="" x="75" y="155" text="炼妖" path="res/wzife/button/middlebutton.tcp"/>  
+  <ImageComponentButton name="" x="135" y="155" text="炼化" path="res/wzife/button/middlebutton.tcp"/>  
+  <ImageComponentButton name="" x="195" y="155" text="内丹" path="res/wzife/button/middlebutton.tcp"/>  
+  <ImageComponentButton name="" x="255" y="155" text="牧场" path="res/wzife/button/middlebutton.tcp"/>  
+  <Sprite x="50" y="60" path="res/shape/char/7001/stand.tcp"/>  
+  <Sprite x="0" y="2" path="res/wzife/dialog/petPanel.tcp"/> 
+</panel>

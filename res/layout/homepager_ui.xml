@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="HomePager" width="806" height="600" x="0" y="0" >
+	<!--进入游戏  -->
+	<ImageComponentButton x="650"  y="240" width="110" height="41" paths="res/componentsRes/loginbutton/enter.png" name="LoginPager" actionId="enter"/>
+	<!-- 注册账号 -->
+	<ImageComponentButton x="650"  y="285" width="110" height="41" paths="res/componentsRes/loginbutton/register.png" name="register" actionId="register"/>
+	<!-- 游戏充值 -->
+	<ImageComponentButton x="650"  y="330" width="110" height="41" paths="res/componentsRes/loginbutton/pay.png" name="pay" actionId="pay"/>
+	<!-- 游戏主页  -->
+	<ImageComponentButton x="650"  y="375" width="110" height="41" paths="res/componentsRes/loginbutton/web.png" name="web" actionId="web"/>
+	<!-- 退出游戏 -->
+	<ImageComponentButton x="650"  y="420" width="110" height="41" paths="res/componentsRes/loginbutton/exit.png" name="exit" actionId="exit"/>
+	<!-- LOGO  -->
+	<ImageComponentButton x="230"  y="70" width="286" height="149" paths="res/componentsRes/loginbutton/logo.png" name="logo" actionId="logo"/>
+</panel>

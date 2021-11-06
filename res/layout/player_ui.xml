@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="PlayerPager" width="313" height="200" x="5" y="110" >
+ 	<Sprite name="当前对象" x="-1" y="0" width="312" height="177" path="res/wzife/dialog/itemm1.tcp" actionId=""/>
+	<ImageComponentButton id="" name="head" x="45" y="5" width="129" height="117" path="res/wzife/photo/facebig/0001.tcp" actionId="head"/>
+ 	<ImageComponentButton id="" text="现金" x="8" y="130"  path="res/wzife/button/smallbtn.tcp" />
+</panel>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="PlayerSkill" width="451" height="465" x="75" y="58" move="true" isReightClose="true">
+	<Sprite  x="0"  y="0"  path="res/wzife/dialog/mskill.tcp" /> 
+	<ImageComponentButton text="师门技能" x="25" y="27" width="" height="" id="" actionId="school_skill" path="res/wzife/button/longbtn.tcp"/>
+	<ImageComponentButton text="辅助技能" x="107" y="27" width="" height="" id="" actionId="assist_skill" path="res/wzife/button/longbtn.tcp"/>
+	<ImageComponentButton text="剧情技能" x="189" y="27" width="" height="" id="" actionId="plot_skill" path="res/wzife/button/longbtn.tcp"/>
+	<ImageComponentButton text="修炼技能" x="271" y="27" width="" height="" id="" actionId="practice_skill" path="res/wzife/button/longbtn.tcp"/>
+	<ImageComponentButton text="奇经八脉" x="353" y="27" width="" height="" id="" actionId="qjbm" path="res/wzife/button/longbtn.tcp"/>
+	<ImageComponentButton name="向上按钮" x="389" y="57" width="18" height="19" id="" actionId="text_up" path="res/wzife/button/sup.tcp"/>
+	<ImageComponentButton name="向下按钮" x="389" y="243" width="18" height="19" id="" actionId="text_down" path="res/wzife/button/sdown.tcp"/>
+	<ImageComponentButton name="closer" x="431" y="3" path="res/wzife/button/closebtn.tcp" actionId="close"/>
+</panel>

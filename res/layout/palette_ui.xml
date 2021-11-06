@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<panel id="PalettePager" width="169" height="264" x="319" y="85" isReightClose="true" move="true"> 
+  <Sprite x="5" y="190" width="100" height="100" text="所需要花豆"/>  
+  <Sprite x="0" y="0" path="res/wzife/dialog/color.tcp"/>  
+  <Sprite x="0" y="0" path="res/wzife/dialog/color.tcp"/>  
+  <ImageComponentButton actionId="close" x="147" y="5" path="res/wzife/button/closebtn.tcp"/>  
+  <ImageComponentButton actionId="changeColor" x="110" name="" y="200" path="res/wzife/button/colorbtn.tcp"/>  
+  <ImageComponentButton actionId="changeDirection" x="138" y="200" path="res/wzife/button/turnbtn.tcp"/>  
+  <ImageComponentButton actionId="confirm" text="确定" x="120" y="230" path="res/wzife/button/smallbtn.tcp"/>  
+  <ImageComponentButton actionId="switchColor" x="29" y="200" name="one" path="res/wzife/button/1.tcp"/>  
+  <ImageComponentButton actionId="switchColor" x="54" y="200" name="two" path="res/wzife/button/2.tcp"/>  
+  <ImageComponentButton actionId="switchColor" x="79" y="200" name="three" path="res/wzife/button/3.tcp"/> 
+</panel>

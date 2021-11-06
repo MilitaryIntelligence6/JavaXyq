@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<panel id="MessageNotificationPanel" width="251" height="572" x="0"
+	y="0">
+	<ImageComponentButton id="" name="head" x="10" y="540"
+		path="res/wzife/chat/left.tcp" actionId="changes" />
+		
+	<ImageComponentButton id="" name="head" x="35" y="540"
+		path="res/wzife/chat/up.tcp" actionId="close" />
+		
+	<ImageComponentButton actionId="close" x="55" y="540"
+		path="res/wzife/chat/down.tcp" />
+
+	<ImageComponentButton actionId="close" x="80" y="540"
+		path="res/wzife/chat/query.tcp" />
+
+	<ImageComponentButton actionId="close" x="105" y="540"
+		path="res/wzife/chat/cup.tcp" />
+
+	<ImageComponentButton actionId="close" x="130" y="540"
+		path="res/wzife/chat/baduser.tcp" />
+		
+	<ImageComponentButton actionId="close" x="155" y="540"
+		path="res/wzife/chat/changebg.tcp" />
+		
+	<ImageComponentButton actionId="close" x="180" y="540"
+		path="res/wzife/chat/autoscroll.tcp" />
+		
+	<ImageComponentButton actionId="close" x="205" y="540"
+		path="res/wzife/chat/clear.tcp" />
+</panel>

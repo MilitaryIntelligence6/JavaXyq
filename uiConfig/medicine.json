@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "description": "长了四片叶子的小花",
+            "efficacy": "恢复气血40点",
+            "hp": 40,
+            "id": "0001",
+            "injury": 0,
+            "level": 0,
+            "mp": 0,
+            "name": "四叶花",
+            "price": 80,
+            "type": "0"
+        },
+        {
+            "description": "乌色的小果子",
+            "efficacy": "治疗伤势10点",
+            "hp": 0,
+            "id": "0002",
+            "injury": 10,
+            "level": 0,
+            "mp": 0,
+            "name": "草果",
+            "price": 20,
+            "type": "0"
+        },
+         {
+            "description": "常见的药草",
+            "efficacy": "恢复气血40,治疗伤势10点",
+            "hp": 40,
+            "id": "0003",
+            "injury": 10,
+            "level": 0,
+            "mp": 0,
+            "name": "山药",
+            "price": 80,
+            "type": "0"
+        },
+         {
+            "description": "常见的药草",
+            "efficacy": "恢复气血40,治疗伤势10点",
+            "hp": 0,
+            "id": "0014",
+            "injury": 10,
+            "level": 0,
+            "mp": 20,
+            "name": "佛手",
+            "price": 200,
+            "type": "0"
+        },
+    ]
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<panel id="SummonPager" width="281" height="460" x="5" y="85" isReightClose="true" move="true"> 
+  <Sprite name="petLevel" text="100" x="180" y="145" width="30" height="18" actionId="" color="black"/>  
+  <Sprite name="petName" x="53" y="195" width="130" height="17" actionId="" color="black"/>  
+  <Sprite name="petHp" text="10/10" x="53" y="217" width="80" height="14" actionId="" color="black"/>  
+  <Sprite name="petMagic" text="10/10" x="53" y="242" width="80" height="14" actionId="" color="black"/>  
+  <Sprite name="petAttack" text="10" x="53" y="267" width="80" height="13" actionId="" color="black"/>  
+  <Sprite name="petDfe" text="10" x="53" y="292" width="80" height="12" actionId="" color="black"/>  
+  <Sprite name="petSpeed" text="10" x="53" y="315" width="80" height="15" actionId="" color="black"/>  
+  <Sprite name="petMana" text="10" x="53" y="342" width="80" height="9" actionId="" color="black"/>  
+  <Sprite name="petTz" text="100" x="182" y="216" width="40" height="16" actionId="" color="black"/>  
+  <Sprite name="text法力" text="100" x="183" y="241" width="40" height="16" actionId="" color="black"/>  
+  <Sprite name="text力量" text="100" x="183" y="264" width="40" height="16" actionId="" color="black"/>  
+  <Sprite name="text耐力" text="100" x="183" y="288" width="40" height="16" actionId="" color="black"/>  
+  <Sprite name="text敏捷" text="100" x="183" y="312" width="40" height="16" actionId="" color="black"/>  
+  <Sprite name="text潜能" text="100" x="182" y="337" width="40" height="16" actionId="" color="black"/>  
+  <Sprite name="text经验" text="1002309" x="85" y="358" width="80" height="20" actionId="" color="black"/>  
+  <Sprite name="text忠诚" text="100" x="53" y="408" width="30" height="14" actionId="" color="black"/>  
+  <!-- 携带数量 -->  
+  <Sprite id="" name="number" x="79" y="169" width="45" height="20"/>  
+  <Sprite id="" name="text携带等级" x="210" y="168" width="40" height="20" text="0"/>  
+  <Sprite name="textLevelExp" text="2352309" x="85" y="383" width="80" height="18" actionId="" color="black"/>  
+  <ImageComponentButton name="" x="226" y="145" text="参战" path="res/wzife/button/smallbtn.tcp"/>  
+  <!-- 体质 -->  
+  <ImageComponentButton name="+physique" x="228" y="218" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-physique" x="248" y="218" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <!-- 魔力 -->  
+  <ImageComponentButton name="+magic" x="228" y="241" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-magic" x="248" y="241" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <!-- 力量 -->  
+  <ImageComponentButton name="+strength" x="228" y="264" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-strength" x="248" y="264" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <!-- 耐力  -->  
+  <ImageComponentButton name="+durability" x="228" y="288" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-durability" x="248" y="288" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <!-- 敏捷  -->  
+  <ImageComponentButton name="+agility" x="228" y="312" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-agility" x="248" y="312" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <ImageComponentButton name="" x="90" y="408" text="驯养" path="res/wzife/button/smallbtn.tcp"/>  
+  <ImageComponentButton name="" x="20" y="430" text="观看" path="res/wzife/button/smallbtn.tcp"/>  
+  <ImageComponentButton name="" x="90" y="430" text="放生" path="res/wzife/button/smallbtn.tcp"/>  
+  <ImageComponentButton name="" x="190" y="190" text="更改名称" path="res/wzife/button/longbtn.tcp"/>  
+  <ImageComponentButton name="" x="180" y="360" text="确认加点" path="res/wzife/button/longbtn.tcp"/>  
+  <ImageComponentButton name="SummonAttrbute" x="180" y="420" text="查看属性" path="res/wzife/button/leftbutton.tcp" actionId="seeAttrbute"/>  
+  <ImageComponentButton id="" x="258" y="5" actionId="close" path="res/wzife/button/closebtn.tcp"/>  
+  <Sprite x="0" y="0" width="281" height="460" path="res/wzife/dialog/summon.tcp"/> 
+</panel>

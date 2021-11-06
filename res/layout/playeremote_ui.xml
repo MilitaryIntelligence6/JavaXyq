@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="PlayerEmote" width="120" height="430" x="670" y="60" isReightClose="true" move="true">
+	<ImageComponentButton id="" x="95" y="10"  actionId="close" path="res/wzife/button/closebtn.tcp"/>
+	<ImageComponentButton id="" x="23" y="40"  name="stand" actionId="movement" path="res/wzife/playermovement/stand.tcp"/>
+	<ImageComponentButton id="" x="23" y="78"  name="walk" actionId="movement" path="res/wzife/playermovement/walk.tcp"/>
+	<ImageComponentButton id="" x="23" y="116"  name="dance" actionId="movement" path="res/wzife/playermovement/舞蹈.tcp"/>
+	<ImageComponentButton id="" x="23" y="154"  name="angry" actionId="movement" path="res/wzife/playermovement/愤怒.tcp"/>
+	<ImageComponentButton id="" x="23" y="192"  name="weep" actionId="movement" path="res/wzife/playermovement/哭泣.tcp"/>
+	<ImageComponentButton id="" x="67" y="38"  name="attack" actionId="movement" path="res/wzife/playermovement/attack.tcp"/>
+	<Sprite  x="0"  y="2"  width="120" height="430" path="res/wzife/dialog/playereotionpanel.tcp" /> 
+</panel>

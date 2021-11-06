@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<panel id="SelectServer" width="806" height="600" x="0" y="0" transparency="0.8"> 
+  <!--上一步 -->  
+  <ImageComponentButton x="650" y="420" width="110" height="41" paths="res/componentsRes/loginbutton/back.png" name="back" actionId="back"/>  
+  <!--下一步 -->  
+  <ImageComponentButton x="650" y="465" width="110" height="41" paths="res/componentsRes/loginbutton/next.png" name="next" actionId="next"/>  
+  <ImageComPonent x="128" y="121" path="server"/>  
+  <ImageComPonent x="625" y="123" path="serv_state"/>  
+  <ImageComPonent x="311" y="58" path="select"/>  
+  <Sprite x="140" y="135" width="65" height="24" border="true" text="郴州" name="cz" grivate="0"/>  
+  <Sprite x="215" y="135" width="65" height="24" border="true" text="衡阳" name="hy" grivate="0"/>  
+  <Sprite x="290" y="135" width="65" height="24" border="true" text="株洲" name="zz" grivate="0"/>  
+  <Sprite x="530" y="460" width="88" height="24" path="res/componentsRes/defaultServer.png" imageIcon="true" name="defaultServer"/>  
+  <Sprite x="540" y="490" width="65" height="24" text="通天山" name="defaultServer_label"/>  
+  <Sprite x="140" y="135" width="65" height="24" path="res/wzife/main/server.tcp" name="severname"/>  
+  <Sprite x="615" y="295" width="65" height="24" path="res/wzife/main/newServer.tcp"/> 
+</panel>

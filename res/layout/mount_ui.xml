@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="MountPager" width="313" height="200" x="5" y="110">
+
+	<ImageComponentButton id="" text="属性" x="240" y="140"  path="res/wzife/button/middlebutton.tcp" />
+	
+	<ImageComponentButton id="" name="ride" text="骑乘" x="240" y="115"  path="res/wzife/button/middlebutton.tcp" actionId="ride"/>
+	
+	<Sprite  x="0"  y="2"  width="311" height="175" path="res/wzife/dialog/mountbackground.tcp" /> 
+</panel>

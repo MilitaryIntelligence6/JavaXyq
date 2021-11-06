@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="LoginPager" width="806" height="600" x="0" y="0">
+	<!--上一步 -->
+	<ImageComponentButton x="650"  y="420" width="110" height="41" paths="res/componentsRes/loginbutton/back.png" name="HomePager" actionId="back"/>
+	<!--下一步 -->
+	<ImageComponentButton x="650"  y="465" width="110" height="41" paths="res/componentsRes/loginbutton/next.png" name="next" actionId="next"/>
+	<!-- 请输入账号密码 -->
+	<ImageComPonent x="247" y="220" path="account"/>
+	<!-- 输入框 -->
+	<ImageComPonent x="275" y="140" path="input"/>
+</panel>

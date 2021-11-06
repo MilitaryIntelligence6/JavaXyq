@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="PropPager" width="313" height="451" x="5" y="90" isReightClose="true">
+
+	<ImageComponentButton id="" x="290" y="5"  actionId="close" path="res/wzife/button/closebtn.tcp"/>
+	<ImageComponentButton text="人物" id="" name="head" x="20" y="420"  path="res/wzife/button/smallbtn.tcp" actionId="player"/>
+	<ImageComponentButton text="坐骑" id="" name="head" x="70" y="420"  path="res/wzife/button/smallbtn.tcp" actionId="mount"/>
+	<Sprite x="0" y="0" path="res/wzife/dialog/item.tcp"/>
+</panel>

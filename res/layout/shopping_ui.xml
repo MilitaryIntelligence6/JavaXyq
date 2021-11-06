@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel id="ShoppingPager" x="260" y="98" width="272" height="421" move="true" isReightClose="true" >
+
+	<Sprite id="" name="price"  x="126" y="277" width="84" height="20" text="0" color="black"/>
+ 	<Sprite id="" name="total" x="126" y="325" width="84" height="20" text="0"  color="blue" />
+    <Sprite id="" name="moeny" x="126" y="350" width="84" height="20" text="0"  color="blue" />
+	<TextField x="126" y="300" width="80" height="20" name="amount"/>
+	<ImageComponentButton id="" x="646" y="5"  actionId="close" path="res/wzife/button/closebtn.tcp"/>
+	<ImageComponentButton id="" name="btnConfirm" text="确定" x="118" y="380" width="" height="" actionId="confirm_buy" path="res/wzife/button/button.tcp" tooltip="" toggle=""/>
+    <ImageComponentButton id="" name="" text="" x="250" y="4" width="" height="" actionId="close" path="res/wzife/button/closebtn.tcp" tooltip="" toggle=""/>
+    <Sprite id="" name="" x="0" y="-2" width="272" height="32" tooltip="" path="res/wzife/dialog/buy.tcp" actionId="null"/>
+	<Sprite  x="0"  y="0"  path="res/wzife/dialog/pawn.tcp" /> 
+</panel>

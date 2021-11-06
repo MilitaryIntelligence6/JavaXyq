@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<panel id="PlayerAttribute" width="257" height="451" x="538" y="58" isReightClose="true" move="true"> 
+  <Sprite x="0" y="0" path="res/wzife/dialog/status.tcp"/>  
+  <ImageComponentButton actionId="close" x="238" y="3" path="res/wzife/button/closebtn.tcp"/>  
+  <ImageComponentButton actionId="help" x="8" y="5" path="res/wzife/button/question.tcp"/>  
+  <ImageComponentButton name="Appellation" actionId="OpenPlayerDescribe" x="7" y="53" text="称谓" path="res/wzife/button/smallbtn.tcp"/>  
+  <!-- 体质 -->  
+  <ImageComponentButton name="+physique" x="205" y="253" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-physique" x="225" y="253" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <!-- 魔力 -->  
+  <ImageComponentButton name="+magic" x="205" y="276" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-magic" x="225" y="276" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <!-- 力量 -->  
+  <ImageComponentButton name="+strength" x="205" y="299" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-strength" x="225" y="299" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <!-- 耐力  -->  
+  <ImageComponentButton name="+durability" x="205" y="322" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-durability" x="225" y="322" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <!-- 敏捷  -->  
+  <ImageComponentButton name="+agility" x="205" y="345" path="res/wzife/button/add.tcp"/>  
+  <ImageComponentButton name="-agility" x="225" y="345" enable="false" path="res/wzife/button/sub.tcp"/>  
+  <ImageComponentButton name="assignPoints" actionId="changeAttribute" x="172" y="369" text="更改属性" path="res/wzife/button/longbtn.tcp"/>  
+  <ImageComponentButton name="升级" actionId="level_up" x="172" y="395" text="升级" path="res/wzife/button/longbtn.tcp"/>  
+  <ImageComponentButton name="PlayerSkill" text="技能" actionId="openSkill" x="172" y="421" path="res/wzife/button/longbtn.tcp"/>  
+  <Sprite name="level" text="${level}" x="55" y="33" width="25" height="16"/>  
+  <Sprite name="name" text="${name}" x="138" y="33" width="100" height="16"/>  
+  <!-- <Sprite name="title" text="${title}" x="55" y="56" width="100" height="16"/>
+    <Sprite name="popularity" text="${popularity}" x="210" y="56" width="30" height="16"/>
+    <Sprite name="faction" text="${faction}" x="55" y="79" width="100" height="16"/>
+    <Sprite name="factionContribution" text="${factionContribution}" x="210" y="79" width="40" height="16"/>
+    <Sprite name="school" text="${school}" x="55" y="103" width="100" height="16"/>
+    <Sprite name="schoolContribution" text="${schoolContribution}" x="210" y="103" width="40" height="16"/>
+    <Sprite name="hp" text="${hp}/${maxHp}/${tmpMaxHp}" x="55" y="133" width="184" height="16"/>
+    <Sprite name="mp" text="${mp}/${maxMp}" x="55" y="155" width="184" height="16"/>
+    <Sprite name="sp" text="${sp}/150" x="55" y="178" width="184" height="16"/>
+    <Sprite name="energy" text="${energy}/${maxEnergy}" x="55" y="201" width="184" height="16"/>
+    <Sprite name="stamina" text="${stamina}/${maxStamina}" x="55" y="224" width="184" height="16"/>
+    <Sprite name="hitrate" text="${hitrate}" x="55" y="255" width="30" height="16"/>
+    <Sprite name="harm" text="${harm}" x="55" y="277" width="30" height="16"/>
+    <Sprite name="defense" text="${defense}" x="55" y="300" width="30" height="16"/>
+    <Sprite name="speed" text="${speed}" x="55" y="322" width="30" height="16"/>
+    <Sprite name="shun" text="${shun}" x="55" y="346" width="30" height="16"/>
+    <Sprite name="wakan" text="${wakan}" x="55" y="368" width="30" height="16"/>
+    <Sprite name="physique" text="${physique+assignPoints.physique}" x="149" y="255" width="30" height="16"/>
+    <Sprite name="magic" text="${magic+assignPoints.magic}" x="149" y="277" width="30" height="16"/>
+    <Sprite name="strength" text="${strength+assignPoints.strength}" x="149" y="300" width="30" height="16"/>
+    <Sprite name="durability" text="${durability+assignPoints.durability}" x="149" y="322" width="30" height="16"/>
+    <Sprite name="agility" text="${agility+assignPoints.agility}" x="149" y="346" width="30" height="16"/>
+    <Sprite name="potentiality" text="${potentiality}" x="140" y="368" width="30" height="16"/>
+    <Sprite name="levelExp" text="${levelExp}" x="85" y="400" width="80" height="16"/>
+    <Sprite name="exp" text="${exp}" x="85" y="424" width="80" height="16"/> --> 
+</panel>

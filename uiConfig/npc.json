@@ -1,0 +1,294 @@
+{
+	"NpcList": [
+		{
+			"characterId": "3307",
+			"describe": "传送到傲来国",
+			"direction": 0,
+			"name": "船夫",
+			"sceneId": 1506,
+			"sceneX": 59,
+			"sceneY": 22,
+			"state": "stand"
+		},
+		{
+			"characterId": "3000",
+			"describe": "删除存档",
+			"direction": 0,
+			"name": "勾魂马面",
+			"sceneId": 1506,
+			"sceneX": 74,
+			"sceneY": 32,
+			"state": "writbuttle"
+		},
+		{
+			"characterId": "3017",
+			"describe": "",
+			"direction": 0,
+			"name": "配色师",
+			"sceneId": 1506,
+			"sceneX": 54,
+			"sceneY": 82,
+			"state": "stand"
+		},
+		{
+			"characterId": "3001",
+			"describe": "召唤兽治疗师",
+			"direction": 0,
+			"name": "超级巫医",
+			"sceneId": 1506,
+			"sceneX": 87,
+			"sceneY": 22,
+			"state": "stand"
+		},
+		{
+			"characterId": "3002",
+			"describe": "",
+			"direction": 0,
+			"name": "沈妙衣",
+			"sceneId": 1104,
+			"sceneX": 17,
+			"sceneY": 17,
+			"state": ""
+		},
+		{
+			"characterId": "3001",
+			"describe": "召唤兽治疗师",
+			"direction": 0,
+			"name": "超级巫医",
+			"sceneId": 1092,
+			"sceneX": 48,
+			"sceneY": 33,
+			"state": "stand"
+		},
+		{
+			"characterId": "3016",
+			"describe": "钓鱼活动",
+			"direction": 4,
+			"name": "捕鱼人",
+			"sceneId": 1092,
+			"sceneX": 199,
+			"sceneY": 76,
+			"state": "stand"
+		},
+		{
+			"characterId": "3307",
+			"describe": "传送到东海湾",
+			"direction": 1,
+			"name": "驿站老板",
+			"sceneId": 1092,
+			"sceneX": 172,
+			"sceneY": 13,
+			"state": "stand"
+		},
+		{
+			"characterId": "3017",
+			"describe": "",
+			"direction": 0,
+			"name": "杜天",
+			"sceneId": 1101,
+			"sceneX": 13,
+			"sceneY": 15,
+			"state": "stand"
+		},
+		{
+			"characterId": "0010",
+			"describe": "",
+			"direction": 4,
+			"name": "你不懂我的、",
+			"sceneId": 1101,
+			"sceneX": 40,
+			"sceneY": 27,
+			"state": "stand"
+		},
+		{
+			"characterId": "0010",
+			"describe": "首席弟子",
+			"direction": 4,
+			"name": "你不懂我的、",
+			"sceneId": 1146,
+			"sceneX": 40,
+			"sceneY": 27,
+			"state": "stand"
+		},
+		{
+			"characterId": "3044",
+			"describe": "传送",
+			"direction": 1,
+			"name": "明月",
+			"sceneId": 1146,
+			"sceneX": 59,
+			"sceneY": 30,
+			"state": "stand"
+		},
+		{
+			"characterId": "3044",
+			"describe": "",
+			"direction": 1,
+			"name": "彩霞",
+			"sceneId": 1146,
+			"sceneX": 47,
+			"sceneY": 36,
+			"state": "stand"
+		},
+		{
+			"characterId": "0001",
+			"describe": "首席弟子",
+			"direction": 4,
+			"name": "无言上西楼",
+			"sceneId": 1002,
+			"sceneX": 49,
+			"sceneY": 30,
+			"state": "stand"
+		},
+		{
+			"characterId": "3049",
+			"describe": "",
+			"direction": 1,
+			"name": "疥癞和尚",
+			"sceneId": 1002,
+			"sceneX": 32,
+			"sceneY": 15,
+			"state": "stand"
+		},
+		{
+			"characterId": "3049",
+			"describe": "",
+			"direction": 1,
+			"name": "慧海",
+			"sceneId": 1002,
+			"sceneX": 47,
+			"sceneY": 36,
+			"state": "stand"
+		},
+		{
+			"characterId": "3049",
+			"describe": "",
+			"direction": 1,
+			"name": "疥癞和尚",
+			"sceneId": 1002,
+			"sceneX": 61,
+			"sceneY": 30,
+			"state": "stand"
+		},
+		{
+			"characterId": "3019",
+			"describe": "",
+			"direction": 1,
+			"name": "兰虎",
+			"sceneId": 1001,
+			"sceneX": 435,
+			"sceneY": 108,
+			"state": "stand"
+		},
+		{
+			"characterId": "3019",
+			"describe": "",
+			"direction": 0,
+			"name": "仓库管理员",
+			"sceneId": 1001,
+			"sceneX": 347,
+			"sceneY": 245,
+			"state": "stand"
+		},
+		{
+			"characterId": "3307",
+			"describe": "",
+			"direction": 1,
+			"name": "传送",
+			"sceneId": 1001,
+			"sceneX": 480,
+			"sceneY": 33,
+			"state": "stand"
+		},
+		{
+			"characterId": "3017",
+			"describe": "",
+			"direction": 0,
+			"name": "配色师",
+			"sceneId": 1001,
+			"sceneX": 288,
+			"sceneY": 17,
+			"state": "stand"
+		},
+		{
+			"characterId": "3004",
+			"describe": "",
+			"direction": 0,
+			"name": "仓库管理员",
+			"sceneId": 1501,
+			"sceneX": 55,
+			"sceneY": 31,
+			"state": "stand"
+		},
+		{
+			"characterId": "3011",
+			"describe": "",
+			"direction": 1,
+			"name": "马全有",
+			"sceneId": 1501,
+			"sceneX": 52,
+			"sceneY": 54,
+			"state": "stand"
+		},
+		{
+			"characterId": "3001",
+			"describe": "召唤兽治疗师",
+			"direction": 0,
+			"name": "超级巫医",
+			"sceneId": 1501,
+			"sceneX": 104,
+			"sceneY": 56,
+			"state": "stand"
+		},
+		{
+			"characterId": "3018",
+			"describe": "衙役",
+			"direction": 1,
+			"name": "赵捕头",
+			"sceneId": 1501,
+			"sceneX": 117,
+			"sceneY": 71,
+			"state": "stand"
+		},
+		{
+			"characterId": "3018",
+			"describe": "建邺守卫",
+			"direction": 1,
+			"name": "传送江南野外",
+			"sceneId": 1501,
+			"sceneX": 11,
+			"sceneY": 4,
+			"state": "stand"
+		},
+		{
+			"characterId": "3006",
+			"describe": "",
+			"direction": 0,
+			"name": "老胡",
+			"sceneId": 1501,
+			"sceneX": 51,
+			"sceneY": 29,
+			"state": "stand"
+		},
+		{
+			"characterId": "3021",
+			"describe": "",
+			"direction": 1,
+			"name": "雷黑子",
+			"sceneId": 1501,
+			"sceneX": 73,
+			"sceneY": 9,
+			"state": "stand"
+		},
+		{
+			"characterId": "3020",
+			"describe": "圣诞节活动",
+			"direction": 0,
+			"name": "雪人",
+			"sceneId": 1174,
+			"sceneX": 164,
+			"sceneY": 105,
+			"state": "stand"
+		}
+	]
+}
