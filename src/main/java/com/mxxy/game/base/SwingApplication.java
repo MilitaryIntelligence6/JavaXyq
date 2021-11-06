@@ -15,6 +15,9 @@ import com.mxxy.game.widget.TileMap;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * @author javaman
+ */
 public class SwingApplication extends Application {
 
     private GameFrame gameFrame;

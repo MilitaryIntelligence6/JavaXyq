@@ -464,6 +464,12 @@ public class BattlePanel extends AbstactPanel implements ISetOnListener<BattlePa
         initHostileTeam();
     }
 
+    /**
+     * 逃跑
+     *
+     * @param player  球员
+     * @param success 成功
+     */
     public void runaway(Players player, boolean success) {
         try {
             RunawayWorker worker = new RunawayWorker(player, success, 2000);

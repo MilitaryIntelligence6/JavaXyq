@@ -224,7 +224,7 @@ public class Constant {
      */
     public static String flie_spance = OSinfo.isMacOSX() ? "/" : "\\";
     public static String currentDir = System.getProperty("user.dir");
-    public static Map<String, Object> props = new HashMap<String, Object>();
+    public static Map<String, Object> props = new HashMap<>();
     /**
      * 游戏文本文字配置
      */
@@ -261,15 +261,19 @@ public class Constant {
      * 登录状态枚举
      */
     public enum LoginStatus {
-        PASSWORDANDUSER_ERR,
         /**
          * 账号密码错误
          */
-        PASSWORDANDUSER_EMPTY,
+        PASSWORDANDUSER_ERR,
         /**
          * 账号密码为空
          */
-        SUCCESS/** 登录成功 */
+        PASSWORDANDUSER_EMPTY,
+        /**
+         * 登录成功
+         */
+        SUCCESS,
+        ;
     }
 
     /**
@@ -278,34 +282,49 @@ public class Constant {
      * @author dell
      */
     public enum RegistStatus {
-        SUCCESS,
         /**
          * 注册成功
          */
-        PASSWORD_ISEMPTY,
+        SUCCESS,
         /**
          * 密码为空
          */
-        CHECK_PASSWORD,
+        PASSWORD_ISEMPTY,
         /**
          * 两次密码不一致
          */
-        USER_PATTERN_ERR,
+        CHECK_PASSWORD,
         /**
          * 格式错误
          */
-        USER_ISEMPTY/** 用户名为空 */
+        USER_PATTERN_ERR,
+        /**
+         * 用户名为空
+         */
+        USER_ISEMPTY
     }
+
     public enum NetMessage {
-        LOGIN, PLATERMOVE;
+        LOGIN,
+        PLATERMOVE,
+        ;
     }
+
     /**
      * 系统常量
      *
      * @author dell
      */
     public enum EPlatform {
-        Linux("Linux"), Mac_OS("Mac OS"), Mac_OS_X("Mac OS X"), Windows("Windows"), SunOS("SunOS");
+        Linux("Linux"),
+
+        Mac_OS("Mac OS"),
+
+        Mac_OS_X("Mac OS X"),
+
+        Windows("Windows"),
+
+        SunOS("SunOS");
 
         private String description;
 
@@ -313,6 +332,7 @@ public class Constant {
             this.description = desc;
         }
 
+        @Override
         public String toString() {
             return description;
         }

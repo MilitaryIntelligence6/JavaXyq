@@ -31,6 +31,7 @@ import com.mxxy.game.widget.Label;
 
 /**
  * 扩展性引擎
+ * @author javaman
  */
 public class GameBuild implements IGameBuilder {
 
@@ -75,7 +76,7 @@ public class GameBuild implements IGameBuilder {
 
 	/**
 	 * 解析ImageComPonent(该方法通过反射调用)
-	 * 
+	 *
 	 * @param panel
 	 * @param rootElement
 	 */
@@ -93,7 +94,7 @@ public class GameBuild implements IGameBuilder {
 			width = Integer.parseInt(attributeValue);
 			height = Integer.parseInt(heightAttributeValue);
 		}
-		
+
 		ImageComponent imageComponent = new ImageComponent(path, x, y, new Point(width, height));
 		imageComponents.add(imageComponent);
 		panel.setImageComponents(imageComponents);
@@ -101,7 +102,7 @@ public class GameBuild implements IGameBuilder {
 
 	/**
 	 * 构造精灵图片(该方法通过反射调用)
-	 * 
+	 *
 	 * @param panel
 	 * @param rootElement
 	 */
@@ -148,7 +149,7 @@ public class GameBuild implements IGameBuilder {
 
 	/**
 	 * 构造Button (该方法通过反射调用)
-	 * 
+	 *
 	 * @param panel
 	 * @param rootElement
 	 */
@@ -166,19 +167,19 @@ public class GameBuild implements IGameBuilder {
 		imageComponentButton.setName(name);
 		imageComponentButton.setEnableds(StringUtils.isNotBlank(enableds));
 		imageComponentButton.addActionListener(panel);
-		
+
 		if (StringUtils.isNotBlank(actionId)) {
 			imageComponentButton.setActionCommand(actionId);
 		}
-		
+
 		if (StringUtils.isNotBlank(path)) {
 			imageComponentButton.init(SpriteFactory.loadSprite(path));
 		}
-		
+
 		if (StringUtils.isNotBlank(text)) {
 			imageComponentButton.setText(text);
 		}
-		
+
 		imageComponentButton.setEnabled(enable == null);
 		if (StringUtils.isNotBlank(paths)) {
 			int width = Integer.valueOf(rootElement.attributeValue("width"));
@@ -195,7 +196,7 @@ public class GameBuild implements IGameBuilder {
 
 	/**
 	 * 解析面板 (该方法通过反射调用)
-	 * 
+	 *
 	 * @param rootElement
 	 * @return
 	 * @throws ClassNotFoundException
@@ -212,11 +213,11 @@ public class GameBuild implements IGameBuilder {
 			panel.setTransparency(Float.parseFloat(transparency));
 		}
 		panel.setBackground(GameColor.black);
-		
+
 		if (rootElement.attributeValue("move") != null|| rootElement.attributeValue("isReightClose") != null) {
 			new PaneListener(panel,rootElement.attributeValue("isReightClose") != null);
 		}
-		
+
 		panel.setLocation(x, y);
 		panel.setName(rootElement.attributeValue("id"));
 		Class<?> class1 = Class.forName("com.mxxy.extendpackage." + panel.getName());
@@ -254,7 +255,7 @@ public class GameBuild implements IGameBuilder {
 
 	/**
 	 * 解析CheckBox(通过反射调用)
-	 * 
+	 *
 	 * @param panel
 	 * @param rootElement
 	 */
@@ -294,7 +295,7 @@ public class GameBuild implements IGameBuilder {
 
 	/**
 	 * 反射
-	 * 
+	 *
 	 * @param mName
 	 *            方法名
 	 * @param arg
