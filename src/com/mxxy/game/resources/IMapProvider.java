@@ -7,7 +7,7 @@ import com.mxxy.game.widget.TileMap;
  */
 public interface IMapProvider extends ResourceProvider<TileMap> {
 
-	public abstract int getWidth();
+    public abstract int getWidth();
 
-	public abstract int getHeight();
+    public abstract int getHeight();
 }

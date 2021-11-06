@@ -1,22 +1,22 @@
 package com.mxxy.game.widget;
 
-import javax.swing.JSlider;
+import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class GameSlider extends JSlider {
 
-	public GameSlider() {
-		super();
-		setDoubleBuffered(true);
-	}
+    public GameSlider() {
+        super();
+        setDoubleBuffered(true);
+    }
 
-	public boolean isRequestFocusEnabled() {
-		setValueIsAdjusting(true);
-		repaint();
-		return super.isRequestFocusEnabled();
-	}
+    public boolean isRequestFocusEnabled() {
+        setValueIsAdjusting(true);
+        repaint();
+        return super.isRequestFocusEnabled();
+    }
 
-	public void setHideThumb(boolean hide) {
-		((GameSliderUI) getUI()).setHideThumb(hide);
-	}
+    public void setHideThumb(boolean hide) {
+        ((GameSliderUI) getUI()).setHideThumb(hide);
+    }
 }

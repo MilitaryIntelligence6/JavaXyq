@@ -6,41 +6,42 @@ import com.mxxy.game.utils.InstanceUtil;
 
 abstract public class AbstractPanelHandler<M> extends PanelHandler {
 
-	protected M modler;
+    protected M modler;
 
-	protected IPropertiseManager propertiesConfigManager;
+    protected IPropertiseManager propertiesConfigManager;
 
-	@Override
-	public M initModler() {
-		modler = InstanceUtil.getInstance(getModlerClazz());
-		exampleConfigManager();
-		return modler;
-	}
+    @Override
+    public M initModler() {
+        modler = InstanceUtil.getInstance(getModlerClazz());
+        exampleConfigManager();
+        return modler;
+    }
 
-	@SuppressWarnings("unchecked")
-	protected Class<?> getModlerClazz() {
-		return (Class<M>) InstanceUtil.getModlerClazz(getClass(), 0);
-	}
+    @SuppressWarnings("unchecked")
+    protected Class<?> getModlerClazz() {
+        return (Class<M>) InstanceUtil.getModlerClazz(getClass(), 0);
+    }
 
-	/**
-	 * 实例化配置
-	 * 
-	 * @return
-	 */
-	public IPropertiseManager exampleConfigManager() {
-		propertiesConfigManager = new PropertiseConfigImpl();
-		propertiesConfigManager.setFilename(setConfigFileName());
-		if (setConfigFileName() != null)
-			propertiesConfigManager.loadConfigs();
-		return propertiesConfigManager;
-	}
+    /**
+     * 实例化配置
+     *
+     * @return
+     */
+    public IPropertiseManager exampleConfigManager() {
+        propertiesConfigManager = new PropertiseConfigImpl();
+        propertiesConfigManager.setFilename(setConfigFileName());
+        if (setConfigFileName() != null) {
+            propertiesConfigManager.loadConfigs();
+        }
+        return propertiesConfigManager;
+    }
 
-	/**
-	 * 需要访问的文件
-	 * 
-	 * @return filename
-	 */
-	protected String setConfigFileName() {
-		return null;
-	}
+    /**
+     * 需要访问的文件
+     *
+     * @return filename
+     */
+    protected String setConfigFileName() {
+        return null;
+    }
 }

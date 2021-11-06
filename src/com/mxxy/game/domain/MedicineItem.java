@@ -1,30 +1,44 @@
 package com.mxxy.game.domain;
 
 
+public class MedicineItem implements Item {
 
-public class MedicineItem implements Item{
-	
     private String id;
-    /**物品名字*/
+    /**
+     * 物品名字
+     */
     private String name;
-    /**描述*/
+    /**
+     * 描述
+     */
     private String description;
-    /**价格*/
+    /**
+     * 价格
+     */
     private long price;
-    
+
     private int hp;
-    /**魔法*/
+    /**
+     * 魔法
+     */
     private int mp;
-    /**伤势*/
+    /**
+     * 伤势
+     */
     private int injury;
-    
+
     private String type;
-    /**功效*/
+    /**
+     * 功效
+     */
     private String efficacy;
-    /**等级*/
+    /**
+     * 等级
+     */
     private short level;
 
-    public MedicineItem() {}
+    public MedicineItem() {
+    }
 
     public MedicineItem(String id) {
         this.id = id;
@@ -140,33 +154,35 @@ public class MedicineItem implements Item{
         return true;
     }
 
-	@Override
-	public String toString() {
-		return "MedicineItem [id=" + id + ", name=" + name + ", description="
-				+ description + ", price=" + price + ", hp=" + hp + ", mp="
-				+ mp + ", injury=" + injury + ", type=" + type + ", efficacy="
-				+ efficacy + ", level=" + level + "]";
-	}
+    @Override
+    public String toString() {
+        return "MedicineItem [id=" + id + ", name=" + name + ", description="
+                + description + ", price=" + price + ", hp=" + hp + ", mp="
+                + mp + ", injury=" + injury + ", type=" + type + ", efficacy="
+                + efficacy + ", level=" + level + "]";
+    }
 
-	/**
-	 * 功效
-	 */
-	public String actualEfficacy() {
-		boolean first = true;
-		StringBuilder buf = new StringBuilder(32);
-		if(hp != 0) {
-			buf.append("恢复气血");
-			buf.append(hp);
-			buf.append("点");
-			first = false;
-		}
-		if(mp != 0) {
-			if(!first)buf.append("，");
-			buf.append("恢复法力");
-			buf.append(mp);
-			buf.append("点");
-			first = false;
-		}
+    /**
+     * 功效
+     */
+    public String actualEfficacy() {
+        boolean first = true;
+        StringBuilder buf = new StringBuilder(32);
+        if (hp != 0) {
+            buf.append("恢复气血");
+            buf.append(hp);
+            buf.append("点");
+            first = false;
+        }
+        if (mp != 0) {
+            if (!first) {
+                buf.append("，");
+            }
+            buf.append("恢复法力");
+            buf.append(mp);
+            buf.append("点");
+            first = false;
+        }
 //		if(sp != 0) {
 //			if(!first)buf.append("，");
 //			buf.append("回复愤怒");
@@ -174,13 +190,15 @@ public class MedicineItem implements Item{
 //			buf.append("点");
 //			first = false;
 //		}
-		if(injury != 0) {//治疗伤势
-			if(!first)buf.append("，");
-			buf.append("治疗伤势");
-			buf.append(injury);
-			buf.append("点");
-			first = false;
-		}
-		return buf.toString();
-	}
+        if (injury != 0) {//治疗伤势
+            if (!first) {
+                buf.append("，");
+            }
+            buf.append("治疗伤势");
+            buf.append(injury);
+            buf.append("点");
+            first = false;
+        }
+        return buf.toString();
+    }
 }

@@ -6,37 +6,36 @@ import com.mxxy.game.utils.UIHelp;
 
 /**
  * 战争回合处理结果
- * 
- * @author dell
  *
+ * @author dell
  */
 final public class BattleRoundHandler implements IBattleListener {
 
-	public UIHelp uiHelp;
-	
+    public UIHelp uiHelp;
 
-	public BattleRoundHandler(UIHelp uiHelp) {
-		this.uiHelp = uiHelp;
-	}
 
-	@Override
-	public void battleWin(BattleEvent e) {
-		
-	}
+    public BattleRoundHandler(UIHelp uiHelp) {
+        this.uiHelp = uiHelp;
+    }
 
-	@Override
-	public void battleDefeated(BattleEvent e) {
+    @Override
+    public void battleWin(BattleEvent e) {
 
-	}
+    }
 
-	@Override
-	public void battleTimeout(BattleEvent e) {
+    @Override
+    public void battleDefeated(BattleEvent e) {
 
-	}
+    }
 
-	@Override
-	public void battleBreak(BattleEvent e) {
-		uiHelp.prompt(null, "战斗结束", 1000);
-	}
+    @Override
+    public void battleTimeout(BattleEvent e) {
+
+    }
+
+    @Override
+    public void battleBreak(BattleEvent e) {
+        uiHelp.prompt(null, "战斗结束", 1000);
+    }
 
 }

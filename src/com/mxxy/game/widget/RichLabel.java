@@ -1,12 +1,11 @@
 package com.mxxy.game.widget;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Point;
+import com.mxxy.game.utils.GameColor;
+import com.mxxy.game.utils.GraphicsUtils;
+import com.mxxy.game.utils.SpriteFactory;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -14,14 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-
-import com.mxxy.game.utils.GameColor;
-import com.mxxy.game.utils.GraphicsUtils;
-import com.mxxy.game.utils.SpriteFactory;
 
 /**
  * 文字格式：聊天时可以为消息内容设置文字格式，指令为“#字母”，区分大小写。 <br>
@@ -41,304 +32,303 @@ import com.mxxy.game.utils.SpriteFactory;
  */
 public class RichLabel extends JComponent {
 
-	private static final long serialVersionUID = 4898130145332371300L;
+    private static final long serialVersionUID = 4898130145332371300L;
+    private static HashMap<String, Animation> faceAnimations;
 
-	private ArrayList<Object> sectionList;
+    static {
+        faceAnimations = new HashMap<String, Animation>(100);
+    }
 
-	private int maxWidth;
+    private ArrayList<Object> sectionList;
+    private int maxWidth;
+    private long startTime;
+    private long currTime;
+    private String lastStr;
+    private String text;
 
-	private long startTime;
+    public RichLabel() {
+        this(null);
+    }
 
-	private long currTime;
+    public RichLabel(String text) {
+        sectionList = new ArrayList<Object>();
+        setBackground(Color.RED);
+        setForeground(Color.BLUE);
+        setIgnoreRepaint(true);
+        setBorder(null);
+        setOpaque(false);
+        this.text = text;
+        setSize(14 * 7, 16);
+        parseText(text);
+    }
 
-	private static HashMap<String, Animation> faceAnimations;
+    public static void main(String[] args) {
+        String text = "#W这是#52#r一个#R《梦幻西游》#B#52#r聊天#r格式文本:#G大家#c008000新#R年#Y事#G事#B如#R意#B#u好!#35#52#R恭贺新禧！！";
+        final JFrame frame = new JFrame("GFormattedLabelText");
+        frame.getContentPane().setBackground(Color.GRAY);
+        final RichLabel label = new RichLabel(text);
+        label.setLocation(10, 10);
+        frame.add(label);
+        final JTextField textField = new JTextField();
+        textField.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                label.setText(textField.getText());
+            }
+        });
+        frame.add(textField, BorderLayout.SOUTH);
+        frame.setSize(400, 300);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Thread update = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while (true) {
+                        label.repaint();
+                        sleep(100);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        update.setDaemon(true);
+        update.start();
+        frame.setVisible(true);
+    }
 
-	static {
-		faceAnimations = new HashMap<String, Animation>(100);
-	}
+    private void parseText(String text) {
+        sectionList.clear();
+        if (text == null) {
+            return;
+        }
+        String section;
+        Pattern pattern = Pattern.compile("#([RGBKYWnbur#]|[1-9]\\d|[0-9]|"
+                + "c[0-9A-Fa-f]?[0-9A-Fa-f]?[0-9A-Fa-f]?[0-9A-Fa-f]?[0-9A-Fa-f]?[0-9A-Fa-f]?)|" + "[^#]+");
+        Matcher m = pattern.matcher(text);
+        Animation anim;
+        while (m.find()) {
+            section = m.group();
+            if (section.startsWith("#")) {
+                anim = faceAnimations.get(section);
+                if (anim == null && section.charAt(1) >= '0' && section.charAt(1) <= '9') {
+                    anim = SpriteFactory.loadAnimation("res/wzife/emoticons/#" + section.substring(1) + ".was");
+                    if (anim != null) {
+                        faceAnimations.put(section, anim);
+                    }
+                }
+                if (anim != null) {
+                    sectionList.add(anim);
+                } else if (section.startsWith("#c")) {
+                    Color color = Color.decode("0x" + section.substring(2));
+                    sectionList.add(color);
+                } else if (section.equals("#R")) {
+                    sectionList.add(Color.RED);
+                } else if (section.equals("#G")) {
+                    sectionList.add(Color.GREEN);
+                } else if (section.equals("#B")) {
+                    sectionList.add(Color.BLUE);
+                } else if (section.equals("#W")) {
+                    sectionList.add(GameColor.decode("#F8E890"));
+                } else if (section.equals("#K")) {
+                    sectionList.add(Color.BLACK);
+                } else if (section.equals("#Y")) {
+                    sectionList.add(Color.YELLOW);
+                } else if (section.equals("#r")) {
+                    // line swap
+                    sectionList.add(new Integer(-1));
+                } else if (section.equals("#n")) {
+                    // FIXME reset
+                    sectionList.add(Color.WHITE);
+                    // } else {
+                    // sectionList.add(section);
+                }
+            } else {
+                sectionList.add(section);
+            }
+        }
+    }
 
-	public RichLabel() {
-		this(null);
-	}
+    @Override
+    public void paint(Graphics g) {
+        GraphicsUtils.setAntialias(g, true);
+        g.setFont(new Font("黑体", Font.PLAIN, 14));
+        g.setColor(Color.WHITE);
+        if (startTime == 0) {
+            startTime = System.currentTimeMillis();
+        }
+        currTime = System.currentTimeMillis();
+        int maxwidth = getWidth(), rowWidth = 0, y = 0, rowHeight = 0;
+        int count = sectionList.size(), start = 0, x = 0;
+        for (int i = 0; i < count; i++) {
+            Object obj = sectionList.get(i);
+            if (obj instanceof String) {
+                String str = (String) obj;
+                FontMetrics fm = g.getFontMetrics();
+                rowHeight = Math.max(rowHeight, fm.getHeight());
+                int dx = fm.stringWidth(str);
+                if (rowWidth + dx <= maxwidth) {
+                    rowWidth += dx;
+                } else {
+                    Point p = paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
+                    start = i + 1;
+                    rowWidth = p.x;
+                    rowHeight = fm.getHeight();
+                    x = p.x;
+                    y = p.y;
+                }
+            } else if (obj instanceof Animation) {
+                Animation anim = (Animation) obj;
+                if (anim.getWidth() + rowWidth > maxwidth) {
+                    paintRichText(g, x, y, maxwidth, rowHeight, start, i);
+                    start = i;
+                    x = 0;
+                    y += rowHeight;
+                    rowWidth = anim.getWidth();
+                    rowHeight = anim.getHeight();
+                } else {
+                    rowHeight = Math.max(rowHeight, anim.getHeight());
+                    rowWidth += anim.getWidth();
+                }
+            } else if (obj instanceof Integer) {// line swap
+                paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
+                start = i;
+                x = 0;
+                y += rowHeight;
+                rowWidth = 0;
+                rowHeight = 0;
+            }
+        }
 
-	public RichLabel(String text) {
-		sectionList = new ArrayList<Object>();
-		setBackground(Color.RED);
-		setForeground(Color.BLUE);
-		setIgnoreRepaint(true);
-		setBorder(null);
-		setOpaque(false);
-		this.text = text;
-		setSize(14 * 7, 16);
-		parseText(text);
-	}
+        this.maxWidth = maxwidth;
+        paintRichText(g, x, y, maxwidth, rowHeight, start, count);
+    }
 
-	private void parseText(String text) {
-		sectionList.clear();
-		if (text == null)
-			return;
-		String section;
-		Pattern pattern = Pattern.compile("#([RGBKYWnbur#]|[1-9]\\d|[0-9]|"
-				+ "c[0-9A-Fa-f]?[0-9A-Fa-f]?[0-9A-Fa-f]?[0-9A-Fa-f]?[0-9A-Fa-f]?[0-9A-Fa-f]?)|" + "[^#]+");
-		Matcher m = pattern.matcher(text);
-		Animation anim;
-		while (m.find()) {
-			section = m.group();
-			if (section.startsWith("#")) {
-				anim = faceAnimations.get(section);
-				if (anim == null && section.charAt(1) >= '0' && section.charAt(1) <= '9') {
-					anim = SpriteFactory.loadAnimation("res/wzife/emoticons/#" + section.substring(1) + ".was");
-					if (anim != null) {
-						faceAnimations.put(section, anim);
-					}
-				}
-				if (anim != null) {
-					sectionList.add(anim);
-				} else if (section.startsWith("#c")) {
-					Color color = Color.decode("0x" + section.substring(2));
-					sectionList.add(color);
-				} else if (section.equals("#R")) {
-					sectionList.add(Color.RED);
-				} else if (section.equals("#G")) {
-					sectionList.add(Color.GREEN);
-				} else if (section.equals("#B")) {
-					sectionList.add(Color.BLUE);
-				} else if (section.equals("#W")) {
-					sectionList.add(GameColor.decode("#F8E890"));
-				} else if (section.equals("#K")) {
-					sectionList.add(Color.BLACK);
-				} else if (section.equals("#Y")) {
-					sectionList.add(Color.YELLOW);
-				} else if (section.equals("#r")) {
-					// line swap
-					sectionList.add(new Integer(-1));
-				} else if (section.equals("#n")) {
-					// FIXME reset
-					sectionList.add(Color.WHITE);
-					// } else {
-					// sectionList.add(section);
-				}
-			} else {
-				sectionList.add(section);
-			}
-		}
-	}
+    private Point paintRichText(Graphics g, int x, int y, int width, int rowh, int start, int end) {
+        if (lastStr != null) {
+            g.drawString(lastStr, 0, y + rowh);
+            lastStr = null;
+        }
+        for (int i = start; i < end; i++) {
+            Object obj = sectionList.get(i);
+            if (obj instanceof String) {
+                String str = (String) obj;
+                FontMetrics fm = g.getFontMetrics();
+                int len = str.length();
+                int begin = 0, index, dx = 0;
+                for (index = 0; index < len; ) {
+                    dx = fm.charWidth(str.charAt(index));
+                    while (x + dx <= width) {
+                        if (++index >= len) {
+                            break;
+                        }
+                        dx += fm.charWidth(str.charAt(index));
+                    }
+                    String s = str.substring(begin, index);
+                    if (i == end - 1 && index >= len && x + dx < width && sectionList.size() > end) {
+                        lastStr = s;
+                        Object nextObj = sectionList.get(end);
+                        if (nextObj instanceof Animation) {
+                            Animation anim = (Animation) nextObj;
+                            if (anim.getWidth() + x + dx > width) {
+                                g.drawString(s, x, y + rowh);
+                                lastStr = null;
+                            }
+                        }
+                    } else {
+                        g.drawString(s, x, y + rowh);
+                    }
 
-	@Override
-	public void paint(Graphics g) {
-		GraphicsUtils.setAntialias(g, true);
-		g.setFont(new Font("黑体", Font.PLAIN, 14));
-		g.setColor(Color.WHITE);
-		if (startTime == 0)
-			startTime = System.currentTimeMillis();
-		currTime = System.currentTimeMillis();
-		int maxwidth = getWidth(), rowWidth = 0, y = 0, rowHeight = 0;
-		int count = sectionList.size(), start = 0, x = 0;
-		for (int i = 0; i < count; i++) {
-			Object obj = sectionList.get(i);
-			if (obj instanceof String) {
-				String str = (String) obj;
-				FontMetrics fm = g.getFontMetrics();
-				rowHeight = Math.max(rowHeight, fm.getHeight());
-				int dx = fm.stringWidth(str);
-				if (rowWidth + dx <= maxwidth) {
-					rowWidth += dx;
-				} else {
-					Point p = paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
-					start = i + 1;
-					rowWidth = p.x;
-					rowHeight = fm.getHeight();
-					x = p.x;
-					y = p.y;
-				}
-			} else if (obj instanceof Animation) {
-				Animation anim = (Animation) obj;
-				if (anim.getWidth() + rowWidth > maxwidth) {
-					paintRichText(g, x, y, maxwidth, rowHeight, start, i);
-					start = i;
-					x = 0;
-					y += rowHeight;
-					rowWidth = anim.getWidth();
-					rowHeight = anim.getHeight();
-				} else {
-					rowHeight = Math.max(rowHeight, anim.getHeight());
-					rowWidth += anim.getWidth();
-				}
-			} else if (obj instanceof Integer) {// line swap
-				paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
-				start = i;
-				x = 0;
-				y += rowHeight;
-				rowWidth = 0;
-				rowHeight = 0;
-			}
-		}
+                    if (index < len || x + dx == width) {
+                        begin = index;
+                        x = 0;
+                        y += rowh;
+                        rowh = fm.getHeight();
+                    } else {
+                        x += fm.stringWidth(s);
+                    }
+                }
+            } else if (obj instanceof Color) {
+                g.setColor((Color) obj);
+            } else if (obj instanceof Animation) {
+                Animation anim = (Animation) obj;
+                anim.updateToTime(currTime - startTime);
+                g.drawImage(anim.getImage(), x, y + rowh - anim.getHeight(), null);
+                x += anim.getWidth();
+            }
+        }
+        return new Point(x, y);
+    }
 
-		this.maxWidth = maxwidth;
-		paintRichText(g, x, y, maxwidth, rowHeight, start, count);
-	}
+    public String getText() {
+        return text;
+    }
 
-	private String lastStr;
+    public void setText(String text) {
+        this.text = text;
+        parseText(text);
+    }
 
-	private String text;
+    public Dimension computeSize(int maxwidth) {
+        if (text == null) {
+            return new Dimension(0, 0);
+        }
+        int rowWidth = 0, y = 0, rowHeight = 0;
+        int count = sectionList.size(), start = 0, x = 0;
+        BufferedImage temp = new BufferedImage(maxwidth, 16, BufferedImage.TYPE_USHORT_565_RGB);
+        Graphics g = temp.getGraphics();
+        g.setFont(new Font("宋体", Font.PLAIN, 15));
+        for (int i = 0; i < count; i++) {
+            Object obj = sectionList.get(i);
+            if (obj instanceof String) {
+                String str = (String) obj;
+                FontMetrics fm = g.getFontMetrics();
+                rowHeight = Math.max(rowHeight, fm.getHeight());
+                int dx = fm.stringWidth(str);
+                if (rowWidth + dx <= maxwidth) {
+                    rowWidth += dx;
+                } else {
+                    Point p = paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
+                    start = i + 1;
+                    rowWidth = p.x;
+                    rowHeight = fm.getHeight();
+                    x = p.x;
+                    y = p.y;
+                }
+            } else if (obj instanceof Animation) {
+                Animation anim = (Animation) obj;
+                if (anim.getWidth() + rowWidth > maxwidth) {
+                    paintRichText(g, x, y, maxwidth, rowHeight, start, i);
+                    start = i;
+                    x = 0;
+                    y += rowHeight;
+                    rowWidth = anim.getWidth();
+                    rowHeight = anim.getHeight();
+                } else {
+                    rowHeight = Math.max(rowHeight, anim.getHeight());
+                    rowWidth += anim.getWidth();
+                }
+            } else if (obj instanceof Integer) {// line swap
+                paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
+                start = i;
+                x = 0;
+                y += rowHeight;
+                rowWidth = 0;
+                rowHeight = 0;
+            }
+        }
+        Point p = paintRichText(g, x, y, maxwidth, rowHeight, start, count);
+        if (y == 0) {
+            maxwidth = p.x;
+        }
+        return new Dimension(maxwidth, y + rowHeight + 4);// FIXME height!!1
+    }
 
-	private Point paintRichText(Graphics g, int x, int y, int width, int rowh, int start, int end) {
-		if (lastStr != null) {
-			g.drawString(lastStr, 0, y + rowh);
-			lastStr = null;
-		}
-		for (int i = start; i < end; i++) {
-			Object obj = sectionList.get(i);
-			if (obj instanceof String) {
-				String str = (String) obj;
-				FontMetrics fm = g.getFontMetrics();
-				int len = str.length();
-				int begin = 0, index, dx = 0;
-				for (index = 0; index < len;) {
-					dx = fm.charWidth(str.charAt(index));
-					while (x + dx <= width) {
-						if (++index >= len)
-							break;
-						dx += fm.charWidth(str.charAt(index));
-					}
-					String s = str.substring(begin, index);
-					if (i == end - 1 && index >= len && x + dx < width && sectionList.size() > end) {
-						lastStr = s;
-						Object nextObj = sectionList.get(end);
-						if (nextObj instanceof Animation) {
-							Animation anim = (Animation) nextObj;
-							if (anim.getWidth() + x + dx > width) {
-								g.drawString(s, x, y + rowh);
-								lastStr = null;
-							}
-						}
-					} else {
-						g.drawString(s, x, y + rowh);
-					}
+    @Override
+    public void paintImmediately(int x, int y, int w, int h) {
+    }
 
-					if (index < len || x + dx == width) {
-						begin = index;
-						x = 0;
-						y += rowh;
-						rowh = fm.getHeight();
-					} else {
-						x += fm.stringWidth(s);
-					}
-				}
-			} else if (obj instanceof Color) {
-				g.setColor((Color) obj);
-			} else if (obj instanceof Animation) {
-				Animation anim = (Animation) obj;
-				anim.updateToTime(currTime - startTime);
-				g.drawImage(anim.getImage(), x, y + rowh - anim.getHeight(), null);
-				x += anim.getWidth();
-			}
-		}
-		return new Point(x, y);
-	}
-
-	public static void main(String[] args) {
-		String text = "#W这是#52#r一个#R《梦幻西游》#B#52#r聊天#r格式文本:#G大家#c008000新#R年#Y事#G事#B如#R意#B#u好!#35#52#R恭贺新禧！！";
-		final JFrame frame = new JFrame("GFormattedLabelText");
-		frame.getContentPane().setBackground(Color.GRAY);
-		final RichLabel label = new RichLabel(text);
-		label.setLocation(10, 10);
-		frame.add(label);
-		final JTextField textField = new JTextField();
-		textField.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				label.setText(textField.getText());
-			}
-		});
-		frame.add(textField, BorderLayout.SOUTH);
-		frame.setSize(400, 300);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Thread update = new Thread() {
-			@Override
-			public void run() {
-				try {
-					while (true) {
-						label.repaint();
-						sleep(100);
-					}
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		};
-		update.setDaemon(true);
-		update.start();
-		frame.setVisible(true);
-	}
-
-	public void setText(String text) {
-		this.text = text;
-		parseText(text);
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public Dimension computeSize(int maxwidth) {
-		if (text == null)
-			return new Dimension(0, 0);
-		int rowWidth = 0, y = 0, rowHeight = 0;
-		int count = sectionList.size(), start = 0, x = 0;
-		BufferedImage temp = new BufferedImage(maxwidth, 16, BufferedImage.TYPE_USHORT_565_RGB);
-		Graphics g = temp.getGraphics();
-		g.setFont(new Font("宋体", Font.PLAIN, 15));
-		for (int i = 0; i < count; i++) {
-			Object obj = sectionList.get(i);
-			if (obj instanceof String) {
-				String str = (String) obj;
-				FontMetrics fm = g.getFontMetrics();
-				rowHeight = Math.max(rowHeight, fm.getHeight());
-				int dx = fm.stringWidth(str);
-				if (rowWidth + dx <= maxwidth) {
-					rowWidth += dx;
-				} else {
-					Point p = paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
-					start = i + 1;
-					rowWidth = p.x;
-					rowHeight = fm.getHeight();
-					x = p.x;
-					y = p.y;
-				}
-			} else if (obj instanceof Animation) {
-				Animation anim = (Animation) obj;
-				if (anim.getWidth() + rowWidth > maxwidth) {
-					paintRichText(g, x, y, maxwidth, rowHeight, start, i);
-					start = i;
-					x = 0;
-					y += rowHeight;
-					rowWidth = anim.getWidth();
-					rowHeight = anim.getHeight();
-				} else {
-					rowHeight = Math.max(rowHeight, anim.getHeight());
-					rowWidth += anim.getWidth();
-				}
-			} else if (obj instanceof Integer) {// line swap
-				paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
-				start = i;
-				x = 0;
-				y += rowHeight;
-				rowWidth = 0;
-				rowHeight = 0;
-			}
-		}
-		Point p = paintRichText(g, x, y, maxwidth, rowHeight, start, count);
-		if (y == 0)
-			maxwidth = p.x;
-		return new Dimension(maxwidth, y + rowHeight + 4);// FIXME height!!1
-	}
-
-	@Override
-	public void paintImmediately(int x, int y, int w, int h) {
-	}
-
-	public int getMaxWidth() {
-		return maxWidth;
-	}
+    public int getMaxWidth() {
+        return maxWidth;
+    }
 }
