@@ -1,10 +1,15 @@
 package com.mxxy.extendpackage;
 
+import cn.hutool.core.util.RandomUtil;
+import com.mxxy.config.BuildConfig;
 import com.mxxy.game.event.PanelEvent;
 import com.mxxy.game.handler.AbstractPanelHandler;
 import com.mxxy.game.ui.BattlePanel;
+import com.mxxy.util.Logger;
 
 import java.awt.event.ActionEvent;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author ZAB
@@ -48,34 +53,38 @@ final public class BattlePanelCmd extends AbstractPanelHandler {
      * 防御
      */
     public void wardefend(ActionEvent e) {
-
+        Logger.echoUnImpl();
     }
 
     /**
      * 召唤
      */
     public void warcall(ActionEvent e) {
-
+        Logger.echoUnImpl();
     }
 
     /**
      * 保护
      */
     public void warprotect(ActionEvent e) {
-
+        Logger.echoUnImpl();
     }
 
     /**
      * 捕捉
      */
     public void warcatch(ActionEvent e) {
-
+        Logger.echoUnImpl();
     }
 
     /**
      * 逃跑
      */
     public void warrunaway(ActionEvent e) {
-        battlepanel.runaway(player, true);
+        if (BuildConfig.UN_IMPL_WAR_ONLY_CAN_RUN_AWAY) {
+            battlepanel.runaway(player, true);
+        } else {
+            battlepanel.runaway(player, RandomUtil.randomBoolean());
+        }
     }
 }

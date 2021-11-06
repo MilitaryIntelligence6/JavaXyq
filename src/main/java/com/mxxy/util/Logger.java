@@ -9,5 +9,15 @@ package com.mxxy.util;
  */
 public class Logger {
 
+    private Logger() {
+        throw new UnsupportedOperationException(String.format("here are no %s instance for you", getClass().getName()));
+    }
 
+    public static void debug() {
+
+    }
+
+    public static void echoUnImpl() {
+        System.err.println("un impl method");
+    }
 }
