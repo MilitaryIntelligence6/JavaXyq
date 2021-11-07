@@ -165,19 +165,14 @@ public class CommandInterpreter {
      * @param string
      */
     public void singleMagic(Players target, String magicName, String string) {
-        new Thread() {
-            @Override
-            public void run() {
-                target.playOnce(Players.STATE_HIT);
-                battlePanel.showPoints(target, -10);
-                target.playEffect(magicName, true, string);
-                target.waitForEffect();
-                target.setState(Players.STATE_STAND);
-                battlePanel.hidePoints(target);
-            }
-
-            ;
-        }.start();
+        new Thread(() -> {
+            target.playOnce(Players.STATE_HIT);
+            battlePanel.showPoints(target, -10);
+            target.playEffect(magicName, true, string);
+            target.waitForEffect();
+            target.setState(Players.STATE_STAND);
+            battlePanel.hidePoints(target);
+        }).start();
     }
 
     public Object invokeMethod(String mName, Object arg) {
