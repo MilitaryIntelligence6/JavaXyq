@@ -75,11 +75,7 @@ public class ProfileImpl implements IProfileManager {
             profile.setPlayerVO(playerData);
             // profile.setSceneId(sceneId);
             return profile;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;

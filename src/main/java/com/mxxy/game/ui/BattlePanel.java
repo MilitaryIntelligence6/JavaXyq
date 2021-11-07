@@ -152,11 +152,10 @@ public class BattlePanel extends AbstactPanel implements ISetOnListener<BattlePa
         waitingCmd = false;
         getUIHelp().hidePanel(BATTLE_ROLE_CMD);
         new Thread("BattleThread") {
+            @Override
             public void run() {
                 commandManager.turnBattle();
             }
-
-            ;
         }.start();
     }
 
@@ -317,8 +316,8 @@ public class BattlePanel extends AbstactPanel implements ISetOnListener<BattlePa
 
     /**
      * 播放一次法术动画
-     *
-     * @param true 为播放音乐
+     * <p>
+     * 为播放音乐
      */
     public void playOnceMagic() {
         getUIHelp().hidePanel(BATTLE_ROLE_WARMAGIC);
@@ -505,10 +504,10 @@ public class BattlePanel extends AbstactPanel implements ISetOnListener<BattlePa
         List<Players> list = new ArrayList<Players>(hostileTeam);
         if (list.size() >= 3) {
             list.sort((o1, o2) -> Integer.compare(o2.getPalyVo().getSpeed(), o1.getPalyVo().getSpeed()));
-            List<Players> players = new ArrayList<>();
-            players.add(list.get(0));
-            players.add(list.get(1));
-            players.add(target);
+            List<Players> playersList = new ArrayList<>();
+            playersList.add(list.get(0));
+            playersList.add(list.get(1));
+            playersList.add(target);
         }
         return list;
     }
