@@ -4,6 +4,9 @@ import com.mxxy.game.sprite.Players;
 import com.mxxy.game.ui.IWindows;
 import com.mxxy.net.IClient;
 
+/**
+ * @author javaman
+ */
 public class Context {
     private Players player;
     private String scene;

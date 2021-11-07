@@ -467,8 +467,8 @@ public class BattlePanel extends AbstactPanel implements ISetOnListener<BattlePa
     /**
      * 逃跑
      *
-     * @param player  球员
-     * @param success 成功
+     * @param player  玩家
+     * @param success 是否成功逃跑
      */
     public void runaway(Players player, boolean success) {
         try {
@@ -504,19 +504,8 @@ public class BattlePanel extends AbstactPanel implements ISetOnListener<BattlePa
     public List<Players> getMagicHostileTeam(Players target, List<Players> hostileTeam) {
         List<Players> list = new ArrayList<Players>(hostileTeam);
         if (list.size() >= 3) {
-            Collections.sort(list, new Comparator<Players>() {
-                @Override
-                public int compare(Players o1, Players o2) {
-                    if (o1.getPalyVo().getSpeed() < o2.getPalyVo().getSpeed()) {
-                        return 1;
-                    }
-                    if (o1.getPalyVo().getSpeed() == o2.getPalyVo().getSpeed()) {
-                        return 0;
-                    }
-                    return -1;
-                }
-            });
-            ArrayList<Players> players = new ArrayList<Players>();
+            list.sort((o1, o2) -> Integer.compare(o2.getPalyVo().getSpeed(), o1.getPalyVo().getSpeed()));
+            List<Players> players = new ArrayList<>();
             players.add(list.get(0));
             players.add(list.get(1));
             players.add(target);

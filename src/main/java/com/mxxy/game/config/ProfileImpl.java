@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author javaman
+ */
 public class ProfileImpl implements IProfileManager {
 
     @Override
@@ -97,7 +100,7 @@ public class ProfileImpl implements IProfileManager {
 
     @Override
     public List<Profile> listProfiles() {
-        List<Profile> profiles = new ArrayList<Profile>();
+        List<Profile> profiles = new ArrayList<>();
         File dir = new File("save");
         if (dir != null && dir.isDirectory()) {
             File[] files = dir.listFiles(new FilterByJava(".jxd"));

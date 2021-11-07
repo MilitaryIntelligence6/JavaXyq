@@ -13,6 +13,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
+/**
+ * @author javaman
+ */
 public class CommandInterpreter {
 
     public final static String MAGICINFIG_TAG = MagicConfig.class.getSimpleName();
@@ -53,7 +56,8 @@ public class CommandInterpreter {
         }
 
         target.playOnce(Players.STATE_HIT);
-        battlePanel.showPoints(target, -99);
+        // 攻击掉血;
+        battlePanel.showPoints(target, -999);
         source.writFor();
         target.setState(Players.STATE_STAND);
         battlePanel.hidePoints(target);
@@ -73,8 +77,9 @@ public class CommandInterpreter {
             battlePanel.rush(source, location.x, location.y, Players.STATE_RUSHB);
         }
 
-        String state = StringUtils.isNotBlank(source.getPalyVo().getRace()) ? Players.STATE_WRITBUTTLE :
-                Players.STATE_STAND;
+        String state = StringUtils.isNotBlank(source.getPalyVo().getRace())
+                ? Players.STATE_WRITBUTTLE
+                : Players.STATE_STAND;
         source.setState(state);
         battlePanel.setBattleMessage("");
     }
@@ -120,6 +125,8 @@ public class CommandInterpreter {
                     attack(command2);
                 }
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + magicConfig.getMagicId());
         }
         source.writFor();
         String state = Players.STATE_WRITBUTTLE;

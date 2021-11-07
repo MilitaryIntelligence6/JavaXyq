@@ -89,6 +89,7 @@ public class Players implements IEventTask {
      * 获取8个方向三角正切
      */
     private static double k1 = Math.tan(Math.PI / 8);
+
     private static double k2 = 3 * k1;
     /**
      * 矩形绘制
@@ -114,6 +115,7 @@ public class Players implements IEventTask {
      * 方向
      */
     private int direction;
+
     private String id;
     /**
      * 姓名字体
@@ -134,7 +136,7 @@ public class Players implements IEventTask {
     /**
      * 移动锁
      */
-    private Object MOVE_LOCK = new Object();
+    private final Object moveLock = new Object();
     /**
      * 当前的移动量[x,y]
      */
@@ -167,6 +169,7 @@ public class Players implements IEventTask {
      * 武器
      */
     private Weapon mWeapon;
+
     private Animation onceEffect;
 
     private boolean isHideName;
@@ -174,7 +177,9 @@ public class Players implements IEventTask {
      * 继续当前方向移动
      */
     private boolean movingOn = false;
+
     private boolean moving = false;
+
     private boolean directionMoving = false;
 
     /**
@@ -440,7 +445,7 @@ public class Players implements IEventTask {
     /**
      * 添加事件
      *
-     * @param scenePlayerHandler
+     * @param l
      */
     public void addPlayerListener(IPlayerListener l) {
         listenerList.add(IPlayerListener.class, l);
@@ -462,7 +467,7 @@ public class Players implements IEventTask {
      * 移动
      */
     public void move() {
-        synchronized (MOVE_LOCK) {
+        synchronized (moveLock) {
             this.prepareStep();
         }
     }
@@ -471,7 +476,7 @@ public class Players implements IEventTask {
      * 准备移动
      */
     private void prepareStep() {
-        synchronized (MOVE_LOCK) {
+        synchronized (moveLock) {
             this.nextStep = this.popPath();
             // 路径已经为空,停止移动
             if (this.nextStep == null) {
@@ -536,7 +541,7 @@ public class Players implements IEventTask {
      * 停止移动
      */
     private void stopAction() {
-        synchronized (MOVE_LOCK) {
+        synchronized (moveLock) {
             this.moving = false;
             this.movingOn = false;
             this.setState(mMount != null ? STATE_MOUNT_STAND : STATE_STAND);
@@ -617,7 +622,7 @@ public class Players implements IEventTask {
     }
 
     public void stop(boolean force) {
-        synchronized (MOVE_LOCK) {
+        synchronized (moveLock) {
             if (force) {
                 stopAction();
             } else {

@@ -7,7 +7,7 @@ package com.mxxy.config;
  * @Description TODO
  * @CreateTime 2021年11月06日 23:54:00
  */
-public class BuildConfig {
+public final class BuildConfig {
 
     private BuildConfig() {
         throw new UnsupportedOperationException(String.format("here are no %s instance for you", getClass().getName()));

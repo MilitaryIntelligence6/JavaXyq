@@ -61,7 +61,9 @@ public class ExtendScript {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println((success) ? "编译成功." : "编译失败!");
+        System.out.println((success)
+                ? "编译成功."
+                : "编译失败!");
         return success;
     }
 

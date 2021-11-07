@@ -7,7 +7,7 @@ package com.mxxy.util;
  * @Description TODO
  * @CreateTime 2021年11月06日 23:39:00
  */
-public class Logger {
+public final class Logger {
 
     private Logger() {
         throw new UnsupportedOperationException(String.format("here are no %s instance for you", getClass().getName()));

@@ -19,7 +19,7 @@ public class Command implements Comparable {
 
     private Players target;
 
-    private Map<String, Object> params = new HashMap<String, Object>();
+    private Map<String, Object> params = new HashMap<>();
 
     public Command(String cmd, Players source) {
         this(cmd, source, null, null);

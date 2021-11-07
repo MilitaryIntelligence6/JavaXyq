@@ -14,18 +14,22 @@ import java.util.Arrays;
 public class PlayerVO implements Serializable {
 
     public static final String STATE_STAND = "stand";
+
     public static final String STATE_WALK = "walk";
-    /**
-     *
-     */
 
     private static final long serialVersionUID = 1L;
+
     public String id;
 
     /**
      * 人物血量
      */
     private int hp;
+
+    /**
+     * 法力值;
+     */
+    private int mp;
 
     /**
      * 人物文件
