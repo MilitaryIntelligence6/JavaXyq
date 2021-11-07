@@ -166,6 +166,7 @@ public class CommandInterpreter {
      */
     public void singleMagic(Players target, String magicName, String string) {
         new Thread() {
+            @Override
             public void run() {
                 target.playOnce(Players.STATE_HIT);
                 battlePanel.showPoints(target, -10);
