@@ -184,15 +184,11 @@ public class CommandInterpreter {
         try {
             method = this.getClass().getDeclaredMethod(mName, arg.getClass());
             return method.invoke(this, arg);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (NoSuchMethodException |
+                SecurityException |
+                IllegalAccessException |
+                IllegalArgumentException |
+                InvocationTargetException e) {
             e.printStackTrace();
         }
         return null;
